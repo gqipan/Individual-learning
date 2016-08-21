@@ -1,4 +1,4 @@
-package org.panpan.jms.PointToPoint;
+package org.panpan.PointToPoint;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
