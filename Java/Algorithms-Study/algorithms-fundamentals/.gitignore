@@ -1,0 +1,10 @@
+# ºöÂÔIntelliJ IDEAÅäÖÃÎÄ¼ş
+*.iml
+*.idea/
+
+# ºöÂÔMaven 
+target/
+
+# ºöÂÔEclipse
+.project
+.settings/
