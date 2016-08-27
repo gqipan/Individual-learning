@@ -1,10 +1,10 @@
-# 忽略IntelliJ IDEA配置文件
+# 蹇界暐IntelliJ IDEA閰嶇疆鏂囦欢
 *.iml
 *.idea/
 
-# 忽略Maven 
+# 蹇界暐maven traget
 target/
 
-# 忽略Eclipse
+# 蹇界暐Eclipse
 .project
 .settings/
