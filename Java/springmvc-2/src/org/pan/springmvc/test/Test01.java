@@ -84,5 +84,10 @@ public class Test01 {
 		System.out.println(entity.getBody());
 		return "ok";
 	}
+	
+	@RequestMapping(value = "/testI18n", method = RequestMethod.GET)
+	public String testI18n(){
+		return "ok";
+	}
 
 }

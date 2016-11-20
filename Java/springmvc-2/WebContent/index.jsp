@@ -62,6 +62,9 @@
 		Note: <input type="text" name="note" value=""/><br/>
 		<input type="submit" value="TestRequestBody"/>	
 	</form>
-	
+
+	<hr>
+	<br>
+	testI18n: <a href="${pageContext.request.contextPath}/testI18n">testI18n</a>
 </body>
 </html>
