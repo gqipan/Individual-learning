@@ -73,5 +73,17 @@
 	<br>
 	testI18n3: <a href="${pageContext.request.contextPath}/testI18n3?locale=zh_CN">中文</a>
 	<a href="${pageContext.request.contextPath}/testI18n3?locale=en_US">English</a>
+	
+	<hr>
+	testUpload
+	<br>
+	<form action="${pageContext.request.contextPath}/testUpload" method="post" enctype="multipart/form-data">
+		file_1: <input type="file" name="file"/><br>
+		file_2: <input type="file" name="file"/><br>
+		file_3: <input type="file" name="file"/><br>
+		<input type="submit" value="testUpload"/>
+	</form>
+	
+	
 </body>
 </html>

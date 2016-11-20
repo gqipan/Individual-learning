@@ -1,5 +1,6 @@
 package org.pan.springmvc.test;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +20,9 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class Test01 {
@@ -129,5 +132,29 @@ public class Test01 {
 		System.out.println("Test i18n3 .............");
 		return "ok";
 	}
-
+	
+	/**
+	 * 多个文件上传：
+	 * 	1、需要common-upload的两个jar包
+	 * 	2、需要在 上下文中配置, org.springframework.web.multipart.commons.CommonsMultipartResolver 
+	 * 	3、接受的参数为 MultipartFile
+	 * @param files
+	 * @return
+	 * @throws IllegalStateException
+	 * @throws IOException
+	 */
+	@RequestMapping(value = "/testUpload", method = RequestMethod.POST)
+	public String testUpload(@RequestParam(value = "file") MultipartFile[] files) throws IllegalStateException, IOException{
+		
+		
+		for (MultipartFile multipartFile : files) {
+			if (multipartFile.isEmpty()) {
+				continue;
+			}
+			multipartFile.transferTo(new File("E:\\" + multipartFile.getOriginalFilename()));
+		}
+		
+		return "ok";
+	}
+	
 }
