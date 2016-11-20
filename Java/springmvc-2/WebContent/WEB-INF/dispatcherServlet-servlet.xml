@@ -34,10 +34,20 @@
 				</list> -->
 		</property>
 	</bean>
+
+	<!-- 使用 SessionLocaleResolver + LocaleChangeInterceptor拦截器的方式使用国际化 -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+	<mvc:interceptors>
+		<bean id="localeChangeInterceptor"
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
+	</mvc:interceptors>
 	
+
 	<!-- 配置国际化信息 -->
-	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="i18n" />
 	</bean>
-	
+
 </beans>

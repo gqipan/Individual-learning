@@ -66,5 +66,12 @@
 	<hr>
 	<br>
 	testI18n: <a href="${pageContext.request.contextPath}/testI18n">testI18n</a>
+	<hr>
+	<br>
+	testI18n2: <a href="${pageContext.request.contextPath}/testI18n2">testI18n2</a>
+	<hr>
+	<br>
+	testI18n3: <a href="${pageContext.request.contextPath}/testI18n3?locale=zh_CN">中文</a>
+	<a href="${pageContext.request.contextPath}/testI18n3?locale=en_US">English</a>
 </body>
 </html>
