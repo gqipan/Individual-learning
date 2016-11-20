@@ -1,13 +1,20 @@
 package org.pan.springmvc.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.management.RuntimeErrorException;
+import javax.validation.Valid;
 
 import org.pan.springmvc.dao.DepartmentDao;
 import org.pan.springmvc.dao.EmployeeDao;
 import org.pan.springmvc.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -40,8 +47,36 @@ public class RestFulController {
 		return "input";
 	}
 
+//	@RequestMapping(value = "/emp", method = RequestMethod.POST)
+//	public String saveEmployee(Employee employee) {
+//		
+//		System.out.println(" Save Employee :" + employee.toString());
+//		
+//		employeeDao.save(employee);
+//		return "redirect:/testRestFul/emps";
+//	}
+	
+	/**
+	 * JSR303验证：
+	 * 	
+	 */
 	@RequestMapping(value = "/emp", method = RequestMethod.POST)
-	public String saveEmployee(Employee employee) {
+	public String saveEmployee(@Valid Employee employee, BindingResult bindingResult, Map<String, Object> map) {
+		
+		if (bindingResult != null && bindingResult.getFieldErrorCount() > 0) {
+			 List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+			for (FieldError fieldError : fieldErrors) {
+				System.out.println(fieldError.getField() + "\t" + fieldError.getCode());
+			}
+//			throw new RuntimeException("录入信息出错");
+			//出错后跳转到Input 页面, 这些出错信息会自动的放入到Map中
+			map.put("departments", departmentDao.getDepartments());
+			map.put("genders", getGenderUtils());
+			return "input";
+		}
+		
+		System.out.println(" Save Employee :" + employee.toString());
+		
 		employeeDao.save(employee);
 		return "redirect:/testRestFul/emps";
 	}
@@ -51,6 +86,7 @@ public class RestFulController {
 
 		// 1 查询出全部部门；
 		map.put("departments", departmentDao.getDepartments());
+		
 		// 2 查询出性别，也保存进LOV (list of value)；
 		map.put("genders", getGenderUtils());
 		// 3 新建承载的bean，实现和前台form表单的对应
@@ -103,10 +139,10 @@ public class RestFulController {
 	 * 参数通常是 WebDataBinder
 	 * @param webDataBinder
 	 */
-	@InitBinder
-	public void initBinder(WebDataBinder webDataBinder) {
-		//不再对  email 字段进行绑定
-		webDataBinder.setDisallowedFields("email");
-	}
+//	@InitBinder
+//	public void initBinder(WebDataBinder webDataBinder) {
+//		//不再对  email 字段进行绑定
+//		webDataBinder.setDisallowedFields("email");
+//	}
 
 }
