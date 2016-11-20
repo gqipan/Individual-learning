@@ -1,0 +1,10 @@
+# 忽略IntelliJ IDEA配置文件
+*.iml
+*.idea/
+
+# 忽略maven traget
+target/
+
+# 忽略Eclipse
+.settings/
+.build/classes/
