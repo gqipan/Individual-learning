@@ -8,3 +8,4 @@ target/
 # 忽略Eclipse
 .settings/
 .build/classes/
+.classpath
