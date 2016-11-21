@@ -33,6 +33,7 @@ public class Test01 {
 
 	@RequestMapping(value = "/testInit", method = RequestMethod.GET)
 	public String testInit() {
+		System.out.println("Test Init Biz Method...........");
 		return "ok";
 	}
 

@@ -35,13 +35,27 @@
 		</property>
 	</bean>
 
-	<!-- 使用 SessionLocaleResolver + LocaleChangeInterceptor拦截器的方式使用国际化 -->
+	<!-- 使用 SessionLocaleResolver + LocaleChangeInterceptor拦截器的方式使用国际化 
 	<bean id="localeResolver"
 		class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
 	<mvc:interceptors>
 		<bean id="localeChangeInterceptor"
 			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
 	</mvc:interceptors>
+	-->
+	
+	<!-- 自定义拦截器 -->
+	<mvc:interceptors>
+		<bean id="firstInterceptor" class="org.pan.springmvc.interceptor.FirstInterceptor"></bean>
+		<!-- 配置多个拦截器的时候，还可以进行细粒度的配置，指定请求的路径，而触发 -->
+		<mvc:interceptor>
+		
+			<mvc:mapping path="/testRestFul/emps"/>
+			<!-- org.pan.springmvc.interceptor.SecondInterceptor -->
+			<ref bean="secondInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
 
 
 	<!-- 配置国际化信息 -->

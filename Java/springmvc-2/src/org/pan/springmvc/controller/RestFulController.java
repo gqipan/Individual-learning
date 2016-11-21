@@ -34,6 +34,7 @@ public class RestFulController {
 
 	@RequestMapping(value = "/emps", method = RequestMethod.GET)
 	public String queryList(Map<String, Object> map) {
+		System.out.println("==================> Multi Interceptor Biz Method........... ");
 		map.put("employees", employeeDao.getAll());
 		return "list";
 	}
