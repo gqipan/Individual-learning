@@ -146,4 +146,14 @@ public class RestFulController {
 //		webDataBinder.setDisallowedFields("email");
 //	}
 
+	
+	@RequestMapping(value = "/testExceptionHandlerExceptionResolver", method = RequestMethod.GET)
+	public String testExceptionHandlerExceptionResolver(@RequestParam(value = "age") Integer age){
+		
+		System.out.println("Test testExceptionHandlerExceptionResolver .............");
+		
+		System.out.println(10 / age);
+		
+		return "ok";
+	}
 }

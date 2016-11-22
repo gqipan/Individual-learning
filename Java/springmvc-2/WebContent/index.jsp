@@ -52,7 +52,7 @@
 	</form>
 	<hr>
 	<br>
-	testResponseEntity: <a href="${pageContext.request.contextPath}/testResponseEntity">testResponseEntity</a>
+	testDownload: <a href="${pageContext.request.contextPath}/testDownload">testDownload</a>
 	<hr>
 	testHttpEntity:
 	<br>
@@ -83,6 +83,15 @@
 		file_3: <input type="file" name="file"/><br>
 		<input type="submit" value="testUpload"/>
 	</form>
+	
+	<hr>
+	<br/>
+	以下是异常处理部分 HandlerExceptionResolver:<br>
+	testExceptionHandlerExceptionResolver:<a href="${pageContext.request.contextPath}/testExceptionHandlerExceptionResolver?age=0">testExceptionHandlerExceptionResolver</a>
+	<hr>
+	<br/>测试到其他Controller还能否处理@ExceptionHandler注解的异常处理方法<br>
+	testRestFul_ExceptionHandlerExceptionResolver:<a href="${pageContext.request.contextPath}/testRestFul/testExceptionHandlerExceptionResolver?age=0">testExceptionHandlerExceptionResolver</a>
+	<hr>
 	
 	
 </body>
