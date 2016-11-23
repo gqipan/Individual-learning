@@ -6,12 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.Locale;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.pan.springmvc.dao.EmployeeDao;
 import org.pan.springmvc.entity.Employee;
+import org.pan.springmvc.exception.MyUserLockException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.http.HttpEntity;
@@ -19,17 +17,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Test01 {
@@ -216,4 +210,45 @@ public class Test01 {
 //		return modelAndView;
 //	}
 	
+	/**
+	 * 可以抛出一个自定的异常：
+	 * 		异常的信息使用@ResponseStatus 设置HttpStatus 和 Reason
+	 * @param userName
+	 * @return
+	 */
+	@RequestMapping(value = "/testResponseStatusExceptionResolver", method = RequestMethod.GET)
+	public String testResponseStatusExceptionResolver(@RequestParam("userName") String userName){
+		if ("li4".equals(userName)) {
+			throw new MyUserLockException();
+		}
+		return "ok";
+	}
+	
+	/**
+	 * 对于在方法头部添加 @ResponseStatus, 如果不是进入if中抛出的异常，
+	 * 	那么其余的都是返回定义在头部的 @ResponseStatus
+	 * @param userName
+	 * @return
+	 */
+	@RequestMapping(value = "/testResponseStatusExceptionResolver_method", method = RequestMethod.GET)
+	@ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "测试**********")
+	public String testResponseStatusExceptionResolver_method(@RequestParam("userName") String userName){
+		if ("li4".equals(userName)) {
+			throw new MyUserLockException();
+		}
+		return "ok";
+	}
+	
+	/**
+	 * 在DispatcherServlet 配置SimpleMappingExceptionResolver 来处理对应的异常处理
+	 * @param idx
+	 * @return
+	 */
+	@RequestMapping(value = "/testSimpleMappingExceptionResolver", method = RequestMethod.GET)
+	public String testSimpleMappingExceptionResolver(@RequestParam("idx") Integer idx)
+	{
+		int[] intArray = new int[10];
+		System.out.println(intArray[idx]);
+		return "ok";
+	}
 }

@@ -92,7 +92,16 @@
 	<br/>测试到其他Controller还能否处理@ExceptionHandler注解的异常处理方法<br>
 	testRestFul_ExceptionHandlerExceptionResolver:<a href="${pageContext.request.contextPath}/testRestFul/testExceptionHandlerExceptionResolver?age=0">testExceptionHandlerExceptionResolver</a>
 	<hr>
-	
-	
+	<br/>
+	testResponseStatusExceptionResolver:
+	<a href="${pageContext.request.contextPath}/testResponseStatusExceptionResolver?userName=li4">testResponseStatusExceptionResolver</a>
+	<hr>
+	<br/>
+	testResponseStatusExceptionResolver_method:
+	<a href="${pageContext.request.contextPath}/testResponseStatusExceptionResolver_method?userName=li4">testResponseStatusExceptionResolver_method</a>
+	<hr>
+	<br/>
+	testSimpleMappingExceptionResolver:
+	<a href="${pageContext.request.contextPath}/testSimpleMappingExceptionResolver?idx=5">testSimpleMappingExceptionResolver</a>
 </body>
 </html>
