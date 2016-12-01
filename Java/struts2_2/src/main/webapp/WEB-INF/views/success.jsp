@@ -33,22 +33,26 @@
 %>
 isEmpty: <s:property value="#request.letters.isEmpty"></s:property><br><br>
 size:<s:property value="#attr.letters.size()"/><br><br/>
-AA:<s:property value="#attr.letters['AA']"/>
+AA:<s:property value="#attr.letters['AA']"/><br><br>
+创建Map: <s:set var="testMap" value="#{'AA':'aa', 'BB':'bb', 'CC':'cc'}"></s:set><br><br>
+读取创建的Map: <s:property value="#attr.testMap.AA"></s:property>
+
+
 
 
     <hr><br><br>
 
-<%
-    List<String> colors = new ArrayList<String>();
-    colors.add("Red");
-    colors.add("Black");
-    colors.add("Green");
+    <%
+        List<String> colors = new ArrayList<String>();
+        colors.add("Red");
+        colors.add("Black");
+        colors.add("Green");
 
-    request.setAttribute("colors", colors);
-%>
-isEmpty: <s:property value="#request.colors.isEmpty()"></s:property><br><br>
-size: <s:property value="#request.colors.size"></s:property><br><br>
-colors: <s:property value="#request.colors[1]"></s:property>
+        request.setAttribute("colors", colors);
+    %>
+    isEmpty: <s:property value="#request.colors.isEmpty()"></s:property><br><br>
+    size: <s:property value="#request.colors.size"></s:property><br><br>
+    colors: <s:property value="#request.colors[1]"></s:property>
 
     <hr><br><br>
 
