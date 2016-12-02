@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+		
+		
+		<!-- 修改拦截器栈 -->
+		<interceptors>
+			<interceptor-stack name="myInterceptorStck" >
+				<interceptor-ref name="paramsPrepareParamsStack">
+					<param name="prepare.alwaysInvokePrepare">false</param>
+					<param name="prepare.firstCallPrepareDo">true</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+			
+		<!-- 设置使用的拦截器为 我们设置的拦截器栈： myInterceptorStck  -->
+		<default-interceptor-ref name="myInterceptorStck"></default-interceptor-ref>
+		
+		<action name="emp_*" class="org.pan.struts2.action.EmployeeAction" method="{1}">
+			<result name="success" type="redirectAction">
+				<param name="actionName">/emp_list</param>
+				<param name="namespace">/</param>
+			</result>
+			<result name="{1}">/WEB-INF/views/{1}.jsp</result>
+		</action>
+		
+    </package>
+
+</struts>
