@@ -8,6 +8,9 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="true" />
 
+	<!-- 指定国际化 baseName, 以便于建立全局的国际化资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="myI18n"></constant>
+
 	<package name="default" namespace="/" extends="struts-default">
 	
 		<interceptors>
@@ -25,6 +28,23 @@
 			<result name="list">/WEB-INF/pages/list.jsp</result>	
 			<result name="success" type="redirectAction">emp_list</result>
 			<result name="input">/WEB-INF/pages/input.jsp</result>
+		</action>
+		
+		<action name="user_add" class="org.pan.struts2.action.UserAction" method="addUser">
+			<result>/WEB-INF/pages/success.jsp</result>
+		</action>
+		
+		<action name="user_adds" class="org.pan.struts2.action.UserAction" method="addUsers">
+			<result>/WEB-INF/pages/success.jsp</result>
+		</action>
+		
+		
+		<action name="test">
+			<result>/test.jsp</result>
+		</action>
+	
+		<action name="userLogin" class="org.pan.struts2.action.UserLoginAction">
+			<result>/WEB-INF/pages/success.jsp</result>
 		</action>
 	</package>
 
