@@ -10,14 +10,20 @@
 <body>
 	<!-- 如果是配置了页面国际化资源文件，
 	那么国际的内容只能在i18n标签中使用，一旦离开i18n标签则不能使用 -->
-	<s:i18n name="i18n">
-
+	<s:i18n name="myI18n">
+		<s:text name="username"></s:text>
+		<s:form>
+			<s:textfield name="username" key="username"></s:textfield>
+			<s:password name="password" key="password"></s:password>
+			<s:submit key="submit"></s:submit>
+		</s:form>
 	</s:i18n>
 
 	<h1>
 		<s:text name="login"></s:text>
 	</h1>
 	<h3>
+		<!-- 使用 s:param 填充占位符信息-->
 		<s:text name="info">
 			<s:param>大师兄</s:param>
 			<s:param>小师兄</s:param>

@@ -14,6 +14,7 @@ public class UserLoginAction extends ActionSupport{
 		
 		System.out.println(username + "_" + password + "_" + submit);
 		
+		// getText 的方式也可以填充占位符信息
 		String info = getText("info", Arrays.asList("大师兄","小师妹") );
 		
 		//当需要替换信息中的占位符时，需要传一个String的集合
