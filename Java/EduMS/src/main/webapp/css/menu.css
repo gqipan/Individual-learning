@@ -1,0 +1,20 @@
+body {
+	left: 0px;
+	font-size: 9px;
+	background-color: lightblue;
+	margin:0; 
+	padding:0;
+	CURSOR: hand; 
+}
+
+A:link, A:visited, A:active, A:hover{ 
+	color: #FFFFFF; 
+	text-decoration: none;
+}
+
+.navPoint{	
+   FONT-SIZE: 9pt; 
+   CURSOR: hand; 
+   COLOR: black; 
+   FONT-FAMILY: Webdings;
+}

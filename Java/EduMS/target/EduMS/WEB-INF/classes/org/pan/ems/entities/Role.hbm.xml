@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.atguigu.ems.entities.Role" table="OA_ROLE">
+        
+        <cache usage="read-write"/>
+        
+        <id name="roleId" type="java.lang.Integer">
+            <column name="ROLE_ID" />
+            <generator class="native" />
+        </id>
+
+        <property name="roleName" type="java.lang.String">
+            <column name="ROLE_NAME" />
+        </property>
+        
+        <!-- 因为所有的 Authority 都在二级缓存中, 所以可以把 lazy 设置为 false -->
+        <!-- 一个 Role 可以包含多个 Authority, 反过来一个 Authority 也可以包含在多个 Role 之中, 所以 Role 和 Authority 之间是 n-n 的关联关系 -->
+        <set name="authorities" table="OA_ROLE_AUTHORITY">
+            <cache usage="read-write"/>
+            <key>
+                <column name="ROLE_ID" />
+            </key>
+            <many-to-many class="com.atguigu.ems.entities.Authority" column="AUTHORITY_ID"></many-to-many>
+        </set>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+html{
+	overflow-x:hidden;
+	overflow-y: scroll;
+}
+
+body {
+	font-family: Tahoma,Arial,Helvetica,Sans-Serif; 
+	background: #DDE4EA; 
+	margin: 0px; 
+	padding: 0px;
+}
+
+img {
+	border: none; 
+	vertical-align: middle;
+}
+
+a:link{
+	color: #0066cc; 
+	text-decoration: none;
+}
+
+a:visited{
+	color: #0066cc; 
+	text-decoration: none;
+}
+a:hover {
+	color: #333333; 
+	text-decoration: underline;
+}
+
+a:active{
+	color: #0066cc; 
+	text-decoration: underline;
+}

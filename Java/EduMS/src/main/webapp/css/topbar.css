@@ -1,0 +1,9 @@
+.topbar{
+	background:url("../images/topbar_bg.gif") top left;
+}
+
+#banner_text{
+   color:#404080;
+   FONT-WEIGHT:bold;
+   FONT-SIZE: 18pt;
+}

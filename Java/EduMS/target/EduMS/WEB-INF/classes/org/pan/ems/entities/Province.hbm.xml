@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-4 10:16:07 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	
+	<!-- 对 Province 使用 Hibernate 的二级缓存, 且使用只读的策略即可 -->
+    <class name="com.atguigu.ems.entities.Province" table="OA_PROVINCE">
+        
+        <cache usage="read-only"/>
+        
+        <id name="provinceId" type="java.lang.Integer">
+            <column name="PROVINCE_ID" />
+            <generator class="native" />
+        </id>
+        
+        <property name="provinceName" type="java.lang.String">
+            <column name="PROVINCE_NAME" />
+        </property>
+        
+        <!-- 对 Province 的 cities 属性使用 Hibernate 的二级缓存, 策略为 read-only -->
+        <set name="cities" table="OA_CITY" inverse="false" lazy="false">
+        	<cache usage="read-only"/>
+            <key>
+                <column name="PROVINCE_ID" />
+            </key>
+            <one-to-many class="com.atguigu.ems.entities.City" />
+        </set>
+        
+    </class>
+    
+</hibernate-mapping>

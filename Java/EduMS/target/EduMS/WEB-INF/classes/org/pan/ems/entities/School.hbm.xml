@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class name="com.atguigu.ems.entities.School" table="OA_SCHOOL">
+        
+        <id name="schoolId" type="java.lang.Integer">
+            <column name="SCHOOL_ID" />
+            <generator class="native" />
+        </id>
+        
+        <property name="schoolName" type="java.lang.String">
+            <column name="SCHOOL_NAME" />
+        </property>
+        
+        <!-- 获取学校的同时使用左外连接获取其关联的 Address 对象 -->
+        <many-to-one name="address" 
+        	class="com.atguigu.ems.entities.Address" 
+        	fetch="join">
+            <column name="ADDRESS_ID" />
+        </many-to-one>
+        
+    </class>
+    
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.atguigu.ems.entities.Resume" table="OA_RESUME">
+        
+        <id name="resumeId" type="java.lang.Integer">
+            <column name="RESUME_ID" />
+            <generator class="native" />
+        </id>
+        
+        <!-- 
+        	对于 Employee 和 Resume 之间的 1-1 关联关系, 外键放在 Resume 对应的数据表中
+        	这意味着: Resume 中映射 Employee 需要使用 many-to-one, 而 Employee 中映射 Resume 使用 one-to-one 
+        -->
+        <many-to-one name="owner" class="com.atguigu.ems.entities.Employee" column="OWNER_ID" unique="true"/>
+        
+        <many-to-one name="address" class="com.atguigu.ems.entities.Address" fetch="join">
+            <column name="ADDRESS_ID" />
+        </many-to-one>
+        
+        <many-to-one name="school" class="com.atguigu.ems.entities.School" fetch="join">
+            <column name="SCHOOL_ID" />
+        </many-to-one>
+        
+        <property name="major" type="java.lang.String">
+            <column name="MAJOR" />
+        </property>
+        
+        <property name="level" type="int">
+            <column name="LEVEL" />
+        </property>
+        
+    </class>
+    
+</hibernate-mapping>
