@@ -1,0 +1,15 @@
+.statusbar{ 
+	BACKGROUND: #b8d1e2; 
+	color:#003366; 
+	background-image:url("../images/statusbar.gif")
+}
+
+#status_text_container{
+	height:12pt;
+	text-align:center;
+	color:#FF0000;
+	FONT-WEIGHT: bold;
+	background-color:transparent; 
+	border:0;
+	cursor:pointer
+}

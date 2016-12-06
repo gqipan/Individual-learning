@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <class name="com.atguigu.ems.entities.Department" table="OA_DEPARTMENT">
+        
+        <cache usage="read-write"/>
+        
+        <id name="departmentId" type="java.lang.Integer">
+            <column name="DEPARTMENT_ID" />
+            <generator class="native" />
+        </id>
+        
+        <property name="departmentName" type="java.lang.String">
+            <column name="DEPARTMENT_NAME" />
+        </property>
+        
+        <many-to-one name="manager" class="com.atguigu.ems.entities.Employee" lazy="proxy">
+            <column name="MANAGER_ID" />
+        </many-to-one>
+        
+        <set name="employees" table="OA_EMPLOYEE" inverse="true" lazy="true">
+            <key>
+                <column name="DEPARTMENT_ID" />
+            </key>
+            <one-to-many class="com.atguigu.ems.entities.Employee" />
+        </set>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,109 @@
+body, div { font-family: 'lucida grande', helvetica, verdana, arial, sans-serif }
+body { margin: 0; padding: 0; font-size: small; color: #333 }
+h1, h2 { font-family: 'trebuchet ms', verdana, arial; padding: 10px; margin: 0 }
+h1 { font-size: large }
+
+center{
+	border: none;
+	border-top: 1px solid #C9DCA6;
+	background: url(../images/employeeForm-fieldset.gif) left bottom repeat-x;
+	background-color: #F8FDEF;
+	width: 100%;
+	position: absolute;
+}
+
+center a{
+	cursor: hand;
+}
+
+.logintxt{
+    border-right: #ffffff 0px solid;
+    border-top: #ffffff 0px solid;
+    font-size: 9pt; /*www.52css.com*/
+    border-left: #ffffff 0px solid;
+    border-bottom: #c0c0c0 1px solid;
+    background-color: #eee;
+}
+
+table {
+	border: 1px solid #666;
+	width: 95%;
+	margin: 10px 0 20px 0 !important;
+}
+
+th,td {
+	padding: 2px 4px 2px 4px !important;
+	text-align: left;
+	vertical-align: top;
+}
+
+thead tr {
+	background-color: #fc0;
+}
+
+th.sorted {
+	background-color: orange;
+}
+
+th a,th a:visited {
+	color: black;
+}
+
+th a:hover {
+	text-decoration: underline;
+	color: black;
+}
+
+th.sorted a,th.sortable a {
+	background-position: right;
+	display: block;
+	width: 100%;
+}
+
+tr.odd {
+	background-color: #fff
+}
+
+tr.tableRowEven,tr.even {
+	background-color: #fea
+}
+
+div.exportlinks {
+	background-color: #eee;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	margin: 2px 0 10px 0;
+	width: 79%;
+}
+
+span.export {
+	padding: 0 4px 1px 20px;
+	display: inline;
+	display: inline-block;
+	cursor: pointer;
+}
+
+span.pagebanner {
+	background-color: #eee;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	width: 60%;
+	margin-top: 10px;
+	display: block;
+	border-bottom: none;
+}
+
+span.pagelinks {
+	background-color: #eee;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	width: 60%;
+	display: block;
+	border-top: none;
+	margin-bottom: -5px;
+	
+}
+
+span.pagelinks a{
+	cursor: hand;
+}

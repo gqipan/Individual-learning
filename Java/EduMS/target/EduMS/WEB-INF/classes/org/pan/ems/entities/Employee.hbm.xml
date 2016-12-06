@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.atguigu.ems.entities.Employee" table="OA_EMPLOYEE">
+        
+        <id name="employeeId" type="java.lang.Integer">
+            <column name="EMPLOYEE_ID" />
+            <generator class="native" />
+        </id>
+
+        <property name="loginName" type="java.lang.String">
+            <column name="LOGIN_NAME" />
+        </property>
+        
+        <property name="employeeName" type="java.lang.String">
+            <column name="EMPLOYEE_NAME" />
+        </property>
+        
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        
+        <!-- 一个 Employee 可以有多个角色, 反过来一个角色也可以分配给多一个 Employee, 所以 Employee 和 Role 之间是 n-n 的关联关系 -->
+        <set name="roles" table="OA_EMPLOYEE_ROLE" inverse="false" lazy="true">
+            <key>
+                <column name="EMPLOYEE_ID" />
+            </key>
+			<many-to-many class="com.atguigu.ems.entities.Role" column="ROLE_ID"></many-to-many>
+        </set>
+        
+        <property name="enabled" type="integer">
+            <column name="ENABLED" />
+        </property>
+        
+        <many-to-one name="department" class="com.atguigu.ems.entities.Department">
+            <column name="DEPARTMENT_ID" />
+        </many-to-one>
+        
+        <property name="birth" type="date">
+            <column name="BIRTH" />
+        </property>
+        
+        <property name="gender" type="java.lang.String">
+            <column name="GENDER" />
+        </property>
+        
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        
+        <property name="mobilePhone" type="java.lang.String">
+            <column name="MOBILE_PHONE" />
+        </property>
+        
+        <property name="visitedTimes" type="int">
+            <column name="VISITED_TIMES" />
+        </property>
+        
+        <property name="isDeleted" type="integer">
+            <column name="IS_DELETED" />
+        </property>
+        
+        <!-- 外键在 Resume 对应的数据表中 -->
+        <one-to-one name="resume" class="com.atguigu.ems.entities.Resume"></one-to-one>
+        <!-- editor 单向 1-n 关联关系. 所以需要说明外键 -->
+        <many-to-one name="editor" 
+        	class="com.atguigu.ems.entities.Employee" column="EDITOR_ID"></many-to-one>
+        
+    </class>
+</hibernate-mapping>

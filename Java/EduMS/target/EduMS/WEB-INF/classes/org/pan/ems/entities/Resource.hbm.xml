@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+    <!-- 使用 Hibernate 的二级缓存 -->
+    <class name="com.atguigu.ems.entities.Resource" table="OA_RESOURCE">
+        
+        <cache usage="read-only"/>
+        
+        <id name="resourceId" type="java.lang.Integer">
+            <column name="RESOURCE_ID" />
+            <generator class="native" />
+        </id>
+        
+        <property name="url" type="java.lang.String">
+            <column name="URL" />
+        </property>
+        
+        <set name="authorities" table="oa_authority_resource">
+        	<key column="RESOURCE_ID"></key>
+        	<many-to-many column="AUTHORITY_ID" class="com.atguigu.ems.entities.Authority"/>
+        </set>
+        
+    </class>
+    
+</hibernate-mapping>
