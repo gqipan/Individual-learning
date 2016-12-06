@@ -1,1 +1,10 @@
 org\pan\ems\entities\City.class
+org\pan\ems\entities\Employee.class
+org\pan\ems\entities\Authority.class
+org\pan\ems\entities\School.class
+org\pan\ems\entities\Resume.class
+org\pan\ems\entities\Address.class
+org\pan\ems\entities\Role.class
+org\pan\ems\entities\Department.class
+org\pan\ems\entities\Province.class
+org\pan\ems\entities\Resource.class
