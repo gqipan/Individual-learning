@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+	      PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+	      "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 运行命令：mvn org.mybatis.generator:mybatis-generator-maven-plugin:1.3.1:generate -->
+<generatorConfiguration>
+	<!-- 配置mysql驱动的完整路径 -->
+	<classPathEntry
+		location="D:\DevRepository\Maven\mysql\mysql-connector-java\5.1.33\mysql-connector-java-5.1.33.jar" />
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" /> <!-- 是否禁止注释 -->
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.0.253:3306/main?generateSimpleParameterMetadata=true"
+			userId="ops" password="123">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 路径的包必须事先创建 -->
+		<!-- generate Model -->
+		<javaModelGenerator targetPackage="com.pan.generator.pojo"
+			targetProject="D:\DevWorkSpace\pan\mybatis-util\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- generate xml -->
+		<sqlMapGenerator targetPackage="com.pan.generator.xml"
+			targetProject="D:\DevWorkSpace\pan\mybatis-util\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- generate Mapper -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.pan.generator.mapper"
+			targetProject="D:\DevWorkSpace\pan\mybatis-util\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table schema="" enableDeleteByPrimaryKey="false"
+			enableDeleteByExample="false" enableCountByExample="false"
+			enableSelectByExample="false" enableUpdateByExample="false"
+			tableName="tms_supplier_audit_plan" domainObjectName="TmsSupplierAuditPlanEntity">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+	</context>
+</generatorConfiguration>
