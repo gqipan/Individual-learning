@@ -23,7 +23,7 @@ public class DeadLock implements Runnable{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                synchronized (lock2) {
+                synchronized (lock2) { //需要lock2的资源
                     System.out.println("当前线程 : "  + Thread.currentThread().getName() + " 进入lock2执行");
                 }
             }
@@ -36,7 +36,7 @@ public class DeadLock implements Runnable{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                synchronized (lock1) {
+                synchronized (lock1) {//需要lock1的资源
                     System.out.println("当前线程 : "  + Thread.currentThread().getName() + " 进入lock1执行");
                 }
             }
