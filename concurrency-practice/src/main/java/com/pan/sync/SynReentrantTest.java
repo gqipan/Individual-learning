@@ -1,4 +1,4 @@
-package com.pan.juc;
+package com.pan.sync;
 
 public class SynReentrantTest {
 
