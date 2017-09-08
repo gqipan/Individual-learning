@@ -1,5 +1,8 @@
 package com.pan.blockingQueue;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.*;
 
 /**
@@ -26,9 +29,9 @@ public class UseBlockingQueue {
 //
 //        TimeUnit.SECONDS.sleep(4);
 
-        BlockingQueue<String> queue = new ArrayBlockingQueue<>(2);
-        queue.put("a");
-        queue.put("b");
+//        ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<>(3);
+//        queue.put("a");
+//        queue.put("b");
 
         // ========== 添加元素 put 会阻塞，offer 只会返回成功失败，add 无空闲位置，抛出异常 =============
 //        queue.put("c"); // 超过了队列的界限也会阻塞，等待有空闲的位置
@@ -37,7 +40,7 @@ public class UseBlockingQueue {
 //        System.out.println(offerResult);
 
         // 等待 TimeUnit 时间，还没有空闲的位置，那么返回false
-        System.out.println(queue.offer("c", 3, TimeUnit.SECONDS));
+//        System.out.println(queue.offer("c", 3, TimeUnit.SECONDS));
 
 //        boolean addResult = queue.add("c"); // 使用 add 超过了队列的限制会抛出异常，IllegalStateException：Queue full， 不会阻塞
 //        System.out.println(addResult);
@@ -48,6 +51,7 @@ public class UseBlockingQueue {
 //        // 执行方法，如果队列中没有元素，等待3秒，3秒后还是没有元素，返回null
 //        System.out.println("poll: " + queue.poll(3, TimeUnit.SECONDS));
 //        System.out.println("remove: " + queue.remove("a")); // 返回True Or False, 并且移出特定的元素
+//         System.out.println("remove: " + queue.remove()); // 可移除和返回队列的头， 如果不存在抛出异常
 //
 //
 //        // =======检查方法 peek、element 检查当前元素存不存在， 存在返回当前元素=============
@@ -64,17 +68,42 @@ public class UseBlockingQueue {
 //        System.out.println(queue.take()); //当前的内容为空，调用take 也会阻塞
 
 
+
+//        for (Iterator<String> iterator = queue.iterator(); iterator.hasNext();){
+//            String s = iterator.next();
+//            System.out.println(s);
+//        }
+//
+//        // 转换为Collection
+//        List<String> list = new ArrayList<>();
+////        queue.drainTo(list); // 把所有元素移出，并放到List中
+//        queue.drainTo(list, 2); // 把所有元素移出，并放到List中
+//        for (String s : list) {
+//            System.out.println(s);
+//        }
+
+
         //=== LinkedBlockingQueue 链式无界阻塞队列, 也可以设置初始容量来设置界限。 所谓的无界就是 Integer.MAX_VALUE ======
 //        BlockingQueue<String> unBoundedBlockingQueue = new LinkedBlockingQueue<>();
-        BlockingQueue<String> boundedBlockingQueue = new LinkedBlockingQueue<>(1024);
+//        BlockingQueue<String> boundedBlockingQueue = new LinkedBlockingQueue<>(1024);
 //
 //        unBoundedBlockingQueue.put("a");
 //        unBoundedBlockingQueue.put("b");
 ////        linkedBlockingQueue.put("b");
 //        System.out.println(unBoundedBlockingQueue.size());
 //
-//        //====== 高性能无界队列
-//        ConcurrentLinkedQueue<String> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
+//        //====== 高性能无界无阻塞队列
+        ConcurrentLinkedQueue<String> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
+        concurrentLinkedQueue.offer("A");
+        concurrentLinkedQueue.offer("B");
+        concurrentLinkedQueue.offer("C");
+        concurrentLinkedQueue.offer("D");
+        concurrentLinkedQueue.add("E");
+
+        System.out.println(concurrentLinkedQueue.peek());
+        System.out.println(concurrentLinkedQueue.size());
+        System.out.println(concurrentLinkedQueue.poll());
+        System.out.println(concurrentLinkedQueue.size());
 
     }
 
