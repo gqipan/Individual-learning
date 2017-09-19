@@ -18,6 +18,8 @@ public class SemaphoreTest {
 
     public static void main(String[] args) {
 
+        int processors = Runtime.getRuntime().availableProcessors();
+        System.out.println(processors);
 
         for (int i = 0; i < THREAD_COUNT; i++) {
             threadPool.execute(new Runnable() {
