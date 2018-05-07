@@ -1,6 +1,7 @@
 .project
 .settings/
-target/
+.target/
+.classes/
 # 忽略IntelliJ IDEA配置文件
 *.iml
 *.idea/
