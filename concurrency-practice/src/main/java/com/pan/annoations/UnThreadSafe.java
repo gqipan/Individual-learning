@@ -9,11 +9,11 @@ import java.lang.annotation.Target;
  * Author: Qipan.G
  * Date: 2018/6/3
  * Time: 15:11
- * Descriptions:
+ * Descriptions: 标识线程不安全
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-public @interface ThreadSafe {
+public @interface UnThreadSafe {
 
     String value() default "";
 
