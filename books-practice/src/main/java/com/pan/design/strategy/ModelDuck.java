@@ -1,5 +1,9 @@
 package com.pan.design.strategy;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by Pan on 2017/6/4.
  */

@@ -24,6 +24,10 @@ public class Cache<T> {
         return cache;
     }
 
+    public synchronized void synTest (){
+        System.out.println(111);
+    }
+
     public void putCache(String key, T value){
         cacheBuffer.put(key, value);
     }
