@@ -10,6 +10,7 @@
         <module>books-practice</module>
         <module>mybatis-util</module>
         <module>leet-code</module>
+        <module>kafka-producer</module>
     </modules>
 
     <groupId>com.pan</groupId>
