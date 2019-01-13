@@ -5,12 +5,10 @@
 
 
     <modules>
-        <module>data-structure</module>
         <module>mini-jvm</module>
         <module>books-practice</module>
-        <module>mybatis-util</module>
         <module>leet-code</module>
-        <module>kafka-producer</module>
+        <module>big-data</module>
     </modules>
 
     <groupId>com.pan</groupId>
