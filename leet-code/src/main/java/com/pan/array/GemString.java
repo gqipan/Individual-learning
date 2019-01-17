@@ -1,3 +1,5 @@
+package com.pan.array;
+
 /**
  * Author: Qipan.G
  * Date: 2018/4/19

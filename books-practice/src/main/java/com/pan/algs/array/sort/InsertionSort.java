@@ -11,7 +11,7 @@ public class InsertionSort {
     public static void sort(Comparable[] array) {
         int length = array.length;
         for (int i = 0; i < length; i++) {
-            // 把array[i] 插入到array[i-1]、array[i-2]、array[i-3]....之中
+            // 把array[i] 插入到array[i-1]、com.pan.array[i-2]、com.pan.array[i-3]....之中
             for (int j = i; j > 0 && less(array[j], array[j - 1]); j--) {
                 Comparable temp = array[j];
                 array[j] = array[j - 1];
