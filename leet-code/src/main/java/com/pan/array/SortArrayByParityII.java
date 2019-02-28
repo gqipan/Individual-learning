@@ -35,6 +35,7 @@ public class SortArrayByParityII {
             }
 
         }
+        return null;
     }
 
 }
