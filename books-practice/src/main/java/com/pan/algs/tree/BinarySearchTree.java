@@ -1,6 +1,7 @@
 package com.pan.algs.tree;
 
-import com.pan.queue.Queue;
+
+import com.pan.algs.queue.Queue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -136,6 +137,7 @@ public class BinarySearchTree<T extends Comparable> {
 
     /**
      * 层级访问
+     *
      * @return
      */
     public List<T> levelVisit() {
@@ -160,17 +162,18 @@ public class BinarySearchTree<T extends Comparable> {
 
     /**
      * 判断是否属于二叉查找树：
-     *  使用中序排列后，判读元素是否为升序
+     * 使用中序排列后，判读元素是否为升序
+     *
      * @return
      */
     public boolean isValid() {
-        if (root == null){
+        if (root == null) {
             return true;
         }
         List<T> orderVisit = BinaryTreeUtil.inOrderVisit(root);
         for (int i = 0; i < orderVisit.size(); i++) {
             // 出现了中序排序后，前面的元素比后面大
-            if (orderVisit.get(i).compareTo(orderVisit.get(i+1)) > 0){
+            if (orderVisit.get(i).compareTo(orderVisit.get(i + 1)) > 0) {
                 return false;
             }
         }
@@ -189,7 +192,7 @@ public class BinarySearchTree<T extends Comparable> {
         return getLowestCommonAncestor(root, node1, node2);
     }
 
-    private T getLowestCommonAncestor(BinaryTreeNode<T> node,T node_1, T node_2){
+    private T getLowestCommonAncestor(BinaryTreeNode<T> node, T node_1, T node_2) {
         if (findNode(node.left, node_1)) {
             if (findNode(node.right, node_2)) {
                 return node.data;
@@ -231,6 +234,7 @@ public class BinarySearchTree<T extends Comparable> {
 
     /**
      * 给定两个值， 获得处于这两个值中间的节点
+     *
      * @param n1
      * @param n2
      * @return
@@ -241,17 +245,17 @@ public class BinarySearchTree<T extends Comparable> {
         return result;
     }
 
-    private void getNodesBetween(BinaryTreeNode<T> node, T data_1, T data_2, List<T> result){
-        if (node == null){
+    private void getNodesBetween(BinaryTreeNode<T> node, T data_1, T data_2, List<T> result) {
+        if (node == null) {
             return;
         }
-        if (node.data.compareTo(data_1) > 0){
+        if (node.data.compareTo(data_1) > 0) {
             getNodesBetween(node.left, data_1, data_2, result);
         }
-        if (node.data.compareTo(data_1) >= 0 && node.data.compareTo(data_2) <= 0){
+        if (node.data.compareTo(data_1) >= 0 && node.data.compareTo(data_2) <= 0) {
             result.add(node.getData());
         }
-        if (node.data.compareTo(data_2) < 0){
+        if (node.data.compareTo(data_2) < 0) {
             getNodesBetween(node.right, data_1, data_2, result);
         }
     }

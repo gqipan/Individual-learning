@@ -2,7 +2,8 @@ package com.pan.algs.download.impl;
 
 
 
-import com.pan.download.api.Connection;
+
+import com.pan.algs.download.api.Connection;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

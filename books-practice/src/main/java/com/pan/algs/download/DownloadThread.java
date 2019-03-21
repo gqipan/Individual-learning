@@ -1,9 +1,7 @@
 package com.pan.algs.download;
 
 
-
-
-import com.pan.download.api.Connection;
+import com.pan.algs.download.api.Connection;
 
 import java.io.RandomAccessFile;
 import java.util.concurrent.CyclicBarrier;

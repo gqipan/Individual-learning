@@ -2,9 +2,8 @@ package com.pan.algs.download.impl;
 
 
 
-
-import com.pan.download.api.Connection;
-import com.pan.download.api.ConnectionManager;
+import com.pan.algs.download.api.Connection;
+import com.pan.algs.download.api.ConnectionManager;
 
 import java.io.IOException;
 
